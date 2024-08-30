@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Series Analysis Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background-color: #212b4a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .content {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .graph {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .correlation-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .correlation-container .graph {
+            width: 48%;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #212b4a;
+            color: white;
+            margin-top: 40px;
+        }
+        .project-description {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flight Passenger Time Series Analysis</h1>
+    </header>
+    <div class="content">
+        <div class="project-description">
+            <p>This project focuses on forecasting airline passenger traffic using time series analysis. By analyzing monthly passenger data from 1949 to 1960, I employed ARIMA and SARIMAX models to predict future trends. The SARIMAX model, in particular, effectively captures seasonal patterns, providing valuable insights into future passenger numbers, helping airlines optimize operations and plan for future demand.</p>
+        </div>
+        <div class="graph">
+            <h2>Future Prediction</h2>
+            <img src="{{ url_for('static', filename='final.png') }}" alt="Future Prediction">
+        </div>
+        <div class="correlation-container">
+            <div class="graph">
+                <h2>SARIMAX Partial Autocorrelation</h2>
+                <img src="{{ url_for('static', filename='sarimax_pacf.png') }}" alt="SARIMAX PACF">
+            </div>
+            <div class="graph">
+                <h2>SARIMAX Autocorrelation</h2>
+                <img src="{{ url_for('static', filename='sarimax_acf.png') }}" alt="SARIMAX ACF">
+            </div>
+        </div>
+        <div class="correlation-container">
+            <div class="graph">
+                <h2>ARIMA Partial Autocorrelation</h2>
+                <img src="{{ url_for('static', filename='arima_pacf.png') }}" alt="ARIMA PACF">
+            </div>
+            <div class="graph">
+                <h2>ARIMA Autocorrelation</h2>
+                <img src="{{ url_for('static', filename='arima_acf.png') }}" alt="ARIMA ACF">
+            </div>
+        </div>
+        <div class="graph">
+            <h2>Rolling Mean and Standard Deviation</h2>
+            <img src="{{ url_for('static', filename='rolling_mean_std.png') }}" alt="Rolling Mean and Std">
+        </div>
+    </div>
+    <footer>
+        <p>Created by Avani Choudhary</p>
+    </footer>
+</body>
+</html>
